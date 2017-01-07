@@ -1,0 +1,32 @@
+package com.darichey.github.objects
+
+data class Release(val url: String,
+				   val html_url: String,
+				   val assets_url: String,
+				   val upload_url: String,
+				   val tarball_url: String,
+				   val zipball_url: String,
+				   val id: Long,
+				   val tag_name: String,
+				   val target_commitish: String,
+				   val name: String,
+				   val body: String,
+				   val draft: Boolean,
+				   val prerelease: Boolean,
+				   val created_at: String,
+				   val published_at: String,
+				   val author: Sender,
+				   val assets: List<Asset>)
+
+data class Asset(val url: String,
+				 val browser_download_url: String,
+				 val id: Long,
+				 val name: String,
+				 val label: String,
+				 val state: String,
+				 val content_type: String,
+				 val size: Int,
+				 val download_count: Int,
+				 val created_at: String,
+				 val updated_at: String,
+				 val uploader: Sender)
