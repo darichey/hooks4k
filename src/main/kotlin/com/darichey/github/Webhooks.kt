@@ -8,7 +8,7 @@ import org.wasabifx.wasabi.app.AppConfiguration
 import org.wasabifx.wasabi.app.AppServer
 import org.wasabifx.wasabi.routing.RouteHandler
 
-class Webhooks(val route: String, config: AppConfiguration = AppConfiguration()) {
+class Webhooks(route: String, config: AppConfiguration = AppConfiguration()) {
 
 	val events = EventBus()
 	val gson = Gson()
@@ -29,9 +29,7 @@ class Webhooks(val route: String, config: AppConfiguration = AppConfiguration())
 			"issues" -> post<IssuesEvent>(content)
 			"label" -> post<LabelEvent>(content)
 			"member" -> post<MemberEvent>(content)
-			"membership" -> post<MembershipEvent>(content)
 			"milestone" -> post<MilestoneEvent>(content)
-			"organization" -> post<OrganizationEvent>(content)
 			"page_build" -> post<PageBuildEvent>(content)
 			"public" -> post<PublicEvent>(content)
 			"pull_request_review_comment" -> post<PullRequestReviewCommentEvent>(content)
