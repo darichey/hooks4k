@@ -12,8 +12,7 @@ class Webhooks(route: String, config: AppConfiguration = AppConfiguration()) {
 
 	val events = EventBus()
 	val gson = Gson()
-
-	private val server = AppServer(config)
+	val server = AppServer(config)
 
 	val handlePost: RouteHandler.() -> Unit = {
 		val content = String((request.httpRequest as HttpContent).content().copy().array())
@@ -51,6 +50,8 @@ class Webhooks(route: String, config: AppConfiguration = AppConfiguration()) {
 	}
 
 	fun start(wait: Boolean = true) = server.start(wait)
+
+	fun stop() = server.stop()
 
 	inline fun <reified T : Event> post(content: String) {
 		events.post(gson.fromJson(content, typeToken<T>()))
